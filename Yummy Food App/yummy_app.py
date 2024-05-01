@@ -81,6 +81,10 @@ def buildShoppingList(menu:list) -> list:
             
     return shoppingList
 
+def displayShoppingList(shoppingList:list):
+    for i in shoppingList:
+        print(i)
+    return None
             
 days = chooseDays();
 
@@ -90,5 +94,4 @@ displayMenu(menu);
     
 shoppingList = buildShoppingList(menu)
 
-for i in shoppingList:
-    print(i)
+displayShoppingList(shoppingList)
