@@ -42,8 +42,6 @@ def beginGame(randomWord: str):
     for _ in range(lenRandomWord):
         hiddenWord += '_'
         
-    
-    
     while (userLives > 0 and '_' in hiddenWord):
         guess = input("Take a guess: ")
                 
@@ -57,9 +55,12 @@ def beginGame(randomWord: str):
             userLives -= 1
             print(''.join(hiddenWord))
             
-    print(''.join(hiddenWord))
-            
-    
-    return None
+    if (userLives == 0):
+        print("You lost!!! ")
+        return "Lost."
+    else:
+        print(f"Congrats, the hidden word was {''.join(hiddenWord)}")
+        return "Win!!!"        
+
 
 print(beginGame(generateHiddenWord()))    
