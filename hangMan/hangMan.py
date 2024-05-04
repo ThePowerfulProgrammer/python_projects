@@ -1,4 +1,6 @@
 import random
+from hangManArt import logo
+from hangManArt import stages
 
  
 # choose a random word from a txt file
@@ -11,6 +13,7 @@ def generateHiddenWord():
     return randomWord
 
 def beginGame(randomWord: str):
+    currentStage = 6 # reflects where our stickman is in his execution 
     showWord = int(input("Select 1 to display partial word and 0 to play on hard word: "))
     if (showWord == 1):
         print("".join(random.sample(randomWord, 2)))
@@ -37,6 +40,7 @@ def beginGame(randomWord: str):
             print(''.join(hiddenWord))
         else:
             print("Wrong guess, try again")
+            print(stages[currentStage])
             userLives -= 1
             print(''.join(hiddenWord))
             
@@ -48,5 +52,6 @@ def beginGame(randomWord: str):
         print(f"Congrats, the hidden word was {''.join(hiddenWord)}")
         return "Win!!!"        
 
+print(logo)
 print("Hello, let's play hangman :^) ")
 print(beginGame(generateHiddenWord()))    
