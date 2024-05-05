@@ -30,22 +30,22 @@ def calculateScore(userHand: list, dealerHand: list):
     
     if userHandScore > 21 and dealerScore <= 21:
         print(f"Your score: {userHandScore}")
-        return "You LOSE."
+        return "You LOSE. 😤"
     elif userHandScore <= 21 and userHandScore > dealerScore:
         displayScores(userHandScore=userHandScore, dealerHandScore=dealerScore)
-        return "You Win!"
+        return "You Win! 😃"
     elif dealerScore > 21 and userHandScore <= 21:
         displayScores(userHandScore=userHandScore, dealerHandScore=dealerScore)
-        return "You Win!"
+        return "You Win! 😃"
     elif userHandScore < 21 and userHandScore < dealerScore:
         displayScores(userHandScore=userHandScore, dealerHandScore=dealerScore)
         return 'You LOSE.' 
     elif userHandScore == dealerScore:
         displayScores(userHandScore=userHandScore, dealerHandScore=dealerScore)
-        return 'Draw!'
+        return 'Draw! 🙃'
     else:
         displayScores(userHandScore=userHandScore, dealerHandScore=dealerScore)
-        return "Dealer Wins!"
+        return "Dealer Wins! 😭"
     
 
 '''
