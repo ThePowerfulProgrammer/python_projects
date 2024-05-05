@@ -71,22 +71,3 @@ print(caesarCipher())
     
 
 
-# shift = 1
-# newWord = ''
-# for i in range(len(alphabet)):
-#     if (i + shift >= len(alphabet)):
-#         # shift needs to start from 0
-#         newWord += alphabet[i+shift - len(alphabet)]
-#     else:
-#         newWord += alphabet[i+shift]
-# print(alphabet)
-# print(newWord)
-
-# decryptWord = ''
-# for i in range(len(newWord)):
-#     if (i - shift < 0):
-#         decryptWord += newWord[i - shift + len(newWord)]
-#     else:
-#         decryptWord += newWord[i-shift]
-        
-# print(decryptWord)
