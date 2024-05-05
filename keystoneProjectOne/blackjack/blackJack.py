@@ -73,6 +73,14 @@ def blackJack(cards:list):
             # Hand each player a card
             userHand.append(random.choice(cards))
             dealerHand.append(random.choice(cards))
+            if (11 in userHand and sum(userHand) > 21):
+                userHand.remove(11)
+                userHand.append(1)
+
+            if (11 in dealerHand and sum(dealerHand) > 21):
+                dealerHand.remove(11)
+                dealerHand.append(1)
+
             if (sum(userHand) > 21 or sum(dealerHand) > 21):
                 return calculateScore(userHand=userHand, dealerHand=dealerHand)
     
