@@ -1,6 +1,7 @@
 from art import logo,vs
 from game_data import data
 import random
+import os
 
 '''
 Simulate Game Play:
@@ -54,27 +55,37 @@ def playGame():
         
         userGuess = input("Who has more followers? Type 'A' or 'B': ")
         
+        if (userGuess not in ('A', 'B')):
+            return f"Score: {userScore}, error input detected!"
+        
         if (dataSetA['follower_count'] > dataSetB['follower_count'] and userGuess == 'A'):
+            os.system("cls")
             userScore += 1
+            dataSetB = data[random.randrange(0,len(data))]
+        
+            while (checkAandB(dataSetA, dataSetB)): 
+                dataSetB = data[random.randrange(0,len(data))]
+            
         elif (dataSetA['follower_count'] < dataSetB['follower_count'] and userGuess == 'B'):
+            os.system("cls")
             userScore += 1
             dataSetA = dataSetB
             dataSetB = data[random.randrange(0,len(data))]
         
             while (checkAandB(dataSetA, dataSetB)): 
                 dataSetB = data[random.randrange(0,len(data))]
-            print(dataSetB['name'])
                 
         elif (dataSetA['follower_count'] > dataSetB['follower_count'] and userGuess == 'B'):
             play = False
-            return f"Ohh, Soo close: A: {dataSetA['follower_count'] * 1000000} > B: {dataSetB['follower_count'] * 1000000} \n Your end score is {userScore}"
+            return f"Ohh, Soo close: {dataSetA['name']}: {dataSetA['follower_count'] * 1000000} > {dataSetB['name']}: {dataSetB['follower_count'] * 1000000} \nYour end score is {userScore}"
         elif (dataSetA['follower_count'] < dataSetB['follower_count'] and userGuess == 'A'):
             play = False
-            return f"Ohh, Soo close: A: {dataSetA['follower_count'] * 1000000} < B: {dataSetB['follower_count'] * 1000000} \n Your end score is {userScore}"
+            return f"Ohh, Soo close: {dataSetA['name']}: {dataSetA['follower_count'] * 1000000} < {dataSetB['name']}: {dataSetB['follower_count'] * 1000000} \nYour end score is {userScore}"
         
         
 # Play game
 def main():
+    os.system("cls")
     print(logo)
     
     return playGame()
